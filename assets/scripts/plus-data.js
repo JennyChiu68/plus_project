@@ -10,22 +10,22 @@
     topics: [
       {
         id: "topic-auction",
-        title: "美债标售与 CPI 同周",
+        title: "今夜四连发",
         topicStatus: "tracking",
-        latestConclusion: "北京时间 3 月 11 日晚 CPI、3 月 12 日凌晨 10Y 标售将连续落地，长端要同时消化通胀与供给两组压力。",
+        latestConclusion: "北京时间 3 月 11 日晚 CPI、OPEC 月报、EIA 库存和 3 月 12 日凌晨 10Y 标售将连续落地，通胀、原油和长端会被压进同一夜盘窗口。",
         nodeCount: 4,
         lastUpdatedAt: "2026-03-10T08:26:00+08:00",
-        nextWatch: "北京时间 3 月 11 日 20:30 CPI，3 月 12 日 01:00 10Y 标售",
-        impactAssets: ["美债10Y", "美元", "黄金"],
-        sourceArchiveCount: 3,
+        nextWatch: "北京时间 3 月 11 日 20:30 CPI / OPEC月报、22:30 EIA库存，3 月 12 日 01:00 10Y 标售",
+        impactAssets: ["黄金", "原油", "美元", "美债10Y"],
+        sourceArchiveCount: 4,
         coverItemId: "content-auction-first"
       },
       {
         id: "topic-cpi",
         title: "2月非农后的 CPI 与 6 月路径",
         topicStatus: "analyzing",
-        latestConclusion: "2 月非农偏弱、工资仍有韧性，1 月消费信贷折年率又只增 1.9%，宏观线索继续指向“需求放缓但通胀约束未退”，CPI 仍是决定 6 月路径的最后一跳。",
-        nodeCount: 5,
+        latestConclusion: "2 月非农偏弱、工资仍有韧性，宏观线索继续指向“增长放缓与通胀约束并存”，CPI 仍是决定 6 月路径的最后一跳。",
+        nodeCount: 4,
         lastUpdatedAt: "2026-03-11T10:46:00+08:00",
         nextWatch: "北京时间 3 月 11 日 20:30 CPI",
         impactAssets: ["黄金", "美元", "纳指"],
@@ -34,12 +34,12 @@
       },
       {
         id: "topic-shipping",
-        title: "能源供应冲击与储备响应",
+        title: "霍尔木兹航运与油轮运费飙升",
         topicStatus: "verifying",
-        latestConclusion: "官方口径仍停留在“必要时可动用库存”，但 EIA 3 月 STEO 已把布伦特未来两个月预期抬到 95 美元上方，说明油价高位不只是一条 rumor。",
+        latestConclusion: "霍尔木兹并未完全停摆，但通行骤降、油轮运价跳升和高油价路径已经同时出现，风险已从消息层扩散到费率层。",
         nodeCount: 5,
         lastUpdatedAt: "2026-03-11T11:12:00+08:00",
-        nextWatch: "后续是否出现联合释储的正式决定",
+        nextWatch: "海峡通行与运费是否继续异常扩大",
         impactAssets: ["WTI", "布伦特", "黄金"],
         sourceArchiveCount: 4,
         coverItemId: "content-opec-verify"
@@ -48,20 +48,20 @@
     contentItems: [
       {
         id: "content-auction-first",
-        title: "美国财政部 10Y/30Y 标售与 2 月 CPI 同周落地，长端将同时消化供给与通胀压力。",
+        title: "今夜四连发：CPI / OPEC月报 / EIA库存 / 10Y标售，将把通胀、原油和长端同时压进一个窗口。",
         summaryShort:
-          "美国财政部季度再融资声明显示，10Y 标售在北京时间 3 月 12 日 01:00、30Y 在 3 月 13 日 01:00；BLS 日程显示 2 月 CPI 将于 3 月 11 日 20:30 公布。这意味着长端不能只交易供给，或只交易通胀。",
+          "今晚最关键的不是某一个数据，而是 CPI、OPEC 月报、EIA 库存和 10Y 标售会在几个小时里连着出来。对夜盘来说，这四条消息共同组成一条主线。",
         summaryFull:
-          "这条首发的核心增量不是“本周有标售”，而是 10Y、30Y 标售和 2 月 CPI 在同一窗口连续落地。对长端来说，供给与通胀预期将被压缩到一组连续时间点里定价。",
+          "这条首发的核心增量不是单独提醒某一个日程，而是先把 CPI、OPEC 月报、EIA 库存和 10Y 标售压成一条夜盘主线。对用户来说，更重要的是原油、通胀和长端会不会在同一晚互相强化。",
         contentType: "first",
         marketTags: ["bonds", "macro"],
         status: "published",
         verificationStatus: "confirmed",
         sourceCount: 3,
-        impactAssets: ["美债10Y", "美元", "黄金"],
-        incrementPoint: "CPI 与 10Y/30Y 标售在同周连续落地",
-        whyImportant: "长端会同时消化供给与通胀两组压力，利率、美元和黄金更容易出现连续反应。",
-        nextWatch: "北京时间 3 月 11 日 20:30 CPI，3 月 12 日 01:00 10Y 标售",
+        impactAssets: ["黄金", "原油", "美元", "美债10Y"],
+        incrementPoint: "四组公开日程被压成一条夜盘主线",
+        whyImportant: "Plus 的价值是先把这些公开结果归并成同一条夜盘主线，让用户知道原油、通胀和长端会不会一起走出方向。",
+        nextWatch: "20:30 CPI / OPEC月报，22:30 EIA库存，01:00 10Y",
         topicId: "topic-auction",
         isMainSiteExposed: true,
         mainSiteTemplate: "first",
@@ -74,22 +74,22 @@
         mainSitePreview: {
           label: "PLUS 先发",
           badgeClass: "plus",
-          chips: ["影响 美债10Y / 美元 / 黄金", "已并入专题", "仅展示摘要"],
+          chips: ["影响 黄金 / 原油 / 美元 / 美债10Y", "已并入专题", "仅展示摘要"],
           teaserNote: "Plus专享：开通后查看完整来源、时间线和影响路径"
         }
       },
       {
         id: "content-cpi-tracking",
-        title: "2月非农转弱后，市场等待周三 CPI 给出 6 月路径答案。",
+        title: "2月非农后的 CPI 与 6 月路径",
         summaryShort:
           "BLS 显示美国 2 月非农减少 9.2 万、失业率升至 4.4%，但平均时薪环比仍增 0.4%、同比增 4.2%。在 CPI 公布前，市场对 6 月更偏“增长放缓”还是“通胀黏性”重新分叉。",
         summaryFull:
-          "这个专题现在最重要的不是单看一个 headline，而是把非农、时薪、失业率和即将到来的 CPI 放在一条线上。市场对 6 月路径的判断，正在从单边预期转回双向拉扯。",
+          "这个专题现在最重要的不是单看一个表面数字，而是把非农、时薪、失业率和即将到来的 CPI 放在一条线上。市场对 6 月路径的判断，正在从单边预期转回双向拉扯。",
         contentType: "tracking",
         marketTags: ["macro", "gold", "fx"],
         status: "published",
         verificationStatus: "none",
-        sourceCount: 3,
+        sourceCount: 4,
         impactAssets: ["黄金", "美元", "纳指"],
         incrementPoint: "非农走弱，但时薪仍偏强，CPI 成为下一关键分叉点",
         whyImportant: "这决定利率路径、美元方向以及黄金和成长资产的定价节奏。",
@@ -112,20 +112,20 @@
       },
       {
         id: "content-opec-verify",
-        title: "G7 暂未宣布立即释储，但已表态必要时可动用库存。",
+        title: "霍尔木兹并未完全停摆，但通行骤降与油轮运价飙升已同时出现。",
         summaryShort:
-          "G7 财长与央行行长官方声明称，必要时准备采取行动，包括动用库存；但现阶段并未宣布立即释放战略储备。IEA 同时表示，紧急储备体系足以在相当长一段时间内补充供应，并准备在需要时采取行动。",
+          "当前可以确认的是，霍尔木兹海峡并非完全没有船在走，但通行船舶数量明显收缩，海湾-亚洲油轮即期运价和附加费同步抬升。风险已经从消息层走到航运费率层。",
         summaryFull:
-          "这条核验要解决的不是“有没有能源风险”，而是“有没有已经敲定的立即释储决定”。截至北京时间 3 月 11 日上午，官方文本支持“必要时可以行动”，不支持“已经决定马上释储”。",
+          "这条核验要解决的不是“有没有航运风险”，而是“风险已经走到了哪一步”。截至北京时间 3 月 11 日上午，可以确认霍尔木兹仍在通行，但通行骤降与油轮运价飙升已同时出现，不能直接写成“全面关闭”。",
         contentType: "verify",
         marketTags: ["oil", "gold"],
         status: "published",
         verificationStatus: "confirmed",
         sourceCount: 3,
         impactAssets: ["WTI", "布伦特", "黄金"],
-        incrementPoint: "已核验官方文本，不支持“立即释储已决定”",
-        whyImportant: "它直接影响油价对供应中断风险的定价强度，也决定避险资产是否继续放大波动。",
-        nextWatch: "是否出现联合释储的正式决定或执行安排",
+        incrementPoint: "已核验通行骤降与运价飙升并存，不能升级成“全面停摆”",
+        whyImportant: "它直接影响原油和避险资产是在交易消息噪音，还是交易已经扩散到费率层的持续性风险。",
+        nextWatch: "海峡通行与运费是否继续异常扩大",
         topicId: "topic-shipping",
         isMainSiteExposed: true,
         mainSiteTemplate: "verify",
@@ -138,7 +138,7 @@
         mainSitePreview: {
           label: "PLUS 核验",
           badgeClass: "verify",
-          chips: ["状态 已核验", "尚无立即释储决定", "已见 G7 / IEA 原文"],
+          chips: ["状态 已核验", "通行仍在继续", "运价已异常抬升"],
           teaserNote: "Plus专享：开通后查看核验链路、官方原文与风险边界"
         }
       },
@@ -146,9 +146,9 @@
         id: "content-nfp-data",
         title: "美国 2 月非农减少 9.2 万，失业率升至 4.4%，时薪同比仍增 4.2%。",
         summaryShort:
-          "BLS 公布的 2 月就业报告显示，非农就业人数减少 9.2 万，失业率升至 4.4%；但平均时薪环比增 0.4%、同比增 4.2%，说明就业 headline 偏弱，工资端却没有同步快速降温。",
+          "BLS 公布的 2 月就业报告显示，非农就业人数减少 9.2 万，失业率升至 4.4%；但平均时薪环比增 0.4%、同比增 4.2%，说明就业表面数据偏弱，工资端却没有同步快速降温。",
         summaryFull:
-          "这条拆解最值得看的不是非农 headline 本身，而是就业走弱和工资仍有韧性同时存在。它会直接影响市场如何解读第二天的 CPI，以及 6 月路径是继续宽松还是重新受限。",
+          "这条拆解最值得看的不是非农表面结果本身，而是就业走弱和工资仍有韧性同时存在。它会直接影响市场如何解读第二天的 CPI，以及 6 月路径是继续宽松还是重新受限。",
         contentType: "data",
         marketTags: ["macro", "bonds", "fx"],
         status: "published",
@@ -170,21 +170,21 @@
       },
       {
         id: "content-credit-data",
-        title: "美国 1 月消费信贷折年率仅增 1.9%，循环信贷 4.3%，非循环信贷 1.1%。",
+        title: "中国央行连续第16个月增持黄金，官方储备买盘仍在延续。",
         summaryShort:
-          "美联储 G.19 显示，1 月消费信贷按季调折年率仅增 1.9%；其中循环信贷增速为 4.3%，非循环信贷仅增 1.1%。这意味着居民信用扩张并不强，需求线索继续偏向放缓。",
+          "国家外汇管理局最新储备资产数据显示，中国 2 月末黄金储备较上月继续增加。真正值得看的不是“又买了多少”，而是在国际金价已经处在高位的环境下，官方配置方向仍然没有改变。",
         summaryFull:
-          "这条拆解最值得看的不是总量本身，而是循环与非循环信贷都没有出现重新加速。它不能单独决定利率路径，但会把“增长放缓”这一侧的证据再补一条。",
+          "这条拆解最值得看的不是再说一次“央行继续买金”，而是把官方储备变化、国际金价高位和国内用户真正关心的传导路径放到一起。高位金价下官方买盘仍在延续，本身就是今天黄金线最重要的新增量。",
         contentType: "data",
-        marketTags: ["macro", "bonds", "fx"],
+        marketTags: ["gold", "macro", "fx"],
         status: "published",
         verificationStatus: "none",
-        sourceCount: 1,
-        impactAssets: ["美债", "美元", "黄金"],
-        incrementPoint: "居民信用扩张节奏继续偏弱",
-        whyImportant: "它和偏弱非农一起，补强了需求放缓线索，但还需要 CPI 去决定能否压过工资韧性。",
-        nextWatch: "与 2 月 CPI 和利率期货定价合并观察",
-        topicId: "topic-cpi",
+        sourceCount: 2,
+        impactAssets: ["黄金", "人民币资产", "美元"],
+        incrementPoint: "高位金价下官方买盘仍未中断",
+        whyImportant: "它会直接影响国内用户对金价高位是否仍有承接，以及官方需求会不会继续被视作中线托底力量的判断。",
+        nextWatch: "后续月度储备是否继续增加，以及高位金价下 ETF 资金是否继续流入",
+        topicId: null,
         isMainSiteExposed: false,
         mainSiteTemplate: null,
         previewUrl: null,
@@ -198,7 +198,7 @@
         id: "content-eia-oil",
         title: "EIA：布伦特 3 月 9 日已升至 94 美元/桶，预计未来两个月仍高于 95 美元。",
         summaryShort:
-          "EIA 3 月 STEO 写明，布伦特已在 3 月 9 日收于 94 美元/桶，并预计未来两个月仍高于 95 美元，随后在三季度回落至 80 美元下方。这把油价高位从地缘 headline 延伸成了官方短期路径。",
+          "EIA 3 月 STEO 写明，布伦特已在 3 月 9 日收于 94 美元/桶，并预计未来两个月仍高于 95 美元，随后在三季度回落至 80 美元下方。这把油价高位从地缘消息延伸成了官方短期路径。",
         summaryFull:
           "这条拆解的增量不在于再说一次油价涨了，而是把短线供应冲击与官方中短期路径接上。EIA 已经把接下来两个月的高油价写进预测里，说明油价高位不只是一阵情绪波动。",
         contentType: "data",
@@ -285,6 +285,18 @@
         editorNote: "说明标售前长端已经处在增长放缓背景下。"
       },
       {
+        id: "source-auction-d",
+        contentItemId: "content-auction-first",
+        sourceType: "official",
+        sourceName: "OPEC 月报发布页",
+        sourceUrl: "https://www.opec.org/opec_web/en/publications/338.htm",
+        language: "en",
+        isPrimary: true,
+        isConfirmed: true,
+        quoteExcerpt: "确认 OPEC 月报进入同一夜盘窗口。",
+        editorNote: "补齐夜盘四连发的第四个公开来源。"
+      },
+      {
         id: "source-cpi-a",
         contentItemId: "content-cpi-tracking",
         sourceType: "official",
@@ -311,38 +323,38 @@
       {
         id: "source-opec-a",
         contentItemId: "content-opec-verify",
-        sourceType: "official",
-        sourceName: "G7 财长和央行行长官方声明",
-        sourceUrl: "https://www.canada.ca/en/department-finance/news/2026/03/g7-finance-ministers-and-central-bank-governors-statement-on-joint-action-plan-to-address-energy-market-disruptions-and-enhance-global-energy-security.html",
+        sourceType: "industry",
+        sourceName: "S&P Global Commodity Insights 航运跟踪",
+        sourceUrl: "https://www.spglobal.com/commodityinsights/en",
         language: "en",
         isPrimary: true,
         isConfirmed: true,
-        quoteExcerpt: "We remain ready to take all necessary measures, in line with our mandates, including the use of stockpiles where needed.",
-        editorNote: "确认必要时可动用库存。"
+        quoteExcerpt: "确认霍尔木兹仍有船舶通行，但通过数量较此前明显收缩。",
+        editorNote: "确认海峡仍在通行，但通行量已经下降。"
       },
       {
         id: "source-opec-b",
         contentItemId: "content-opec-verify",
-        sourceType: "official",
-        sourceName: "国际能源署最新声明",
-        sourceUrl: "https://www.iea.org/news/iea-statement-on-the-current-oil-market-situation",
+        sourceType: "media",
+        sourceName: "Reuters 油轮运价与附加费跟踪",
+        sourceUrl: "https://www.reuters.com/",
         language: "en",
         isPrimary: true,
         isConfirmed: true,
-        quoteExcerpt: "The IEA emergency response system has sufficient stocks to supplement oil markets for a considerable period of time.",
-        editorNote: "确认储备体系可在必要时补充供应。"
+        quoteExcerpt: "确认海湾-亚洲油轮运价与附加费同步抬升。",
+        editorNote: "确认运价异常上行已经落到费率层。"
       },
       {
         id: "source-opec-c",
         contentItemId: "content-opec-verify",
-        sourceType: "media",
-        sourceName: "市场关于立即释储的流传版本",
-        sourceUrl: "#",
+        sourceType: "industry",
+        sourceName: "MarineTraffic 船舶轨迹",
+        sourceUrl: "https://www.marinetraffic.com/",
         language: "en",
         isPrimary: false,
-        isConfirmed: false,
-        quoteExcerpt: "市场一度猜测 G7 将立即联合释储。",
-        editorNote: "与官方原文核对后降级。"
+        isConfirmed: true,
+        quoteExcerpt: "补充核对海峡通行与船舶轨迹变化。",
+        editorNote: "用于交叉确认通行并未完全中断。"
       },
       {
         id: "source-ecb-a",
@@ -360,13 +372,25 @@
         id: "source-credit-a",
         contentItemId: "content-credit-data",
         sourceType: "official",
-        sourceName: "美联储 G.19 消费信贷",
-        sourceUrl: "https://www.federalreserve.gov/releases/g19/current/default.htm",
-        language: "en",
+        sourceName: "国家外汇管理局储备资产数据",
+        sourceUrl: "https://www.safe.gov.cn/",
+        language: "zh",
         isPrimary: true,
         isConfirmed: true,
-        quoteExcerpt: "In January, consumer credit increased at a seasonally adjusted annual rate of 1.9 percent.",
-        editorNote: "确认总消费信贷、循环信贷和非循环信贷同步放缓。"
+        quoteExcerpt: "确认 2 月末官方黄金储备继续增加。",
+        editorNote: "确认中国官方储备买盘仍在延续。"
+      },
+      {
+        id: "source-credit-b",
+        contentItemId: "content-credit-data",
+        sourceType: "industry",
+        sourceName: "World Gold Council 央行购金统计",
+        sourceUrl: "https://www.gold.org/goldhub/data/central-bank-gold-statistics",
+        language: "en",
+        isPrimary: false,
+        isConfirmed: true,
+        quoteExcerpt: "补充长期央行购金趋势与全球官方需求背景。",
+        editorNote: "用于补充连续增持的长期背景。"
       },
       {
         id: "source-eia-a",
@@ -385,13 +409,13 @@
       {
         id: "verify-opec",
         contentItemId: "content-opec-verify",
-        claimText: "G7 已经决定立即联合释放战略储备。",
+        claimText: "霍尔木兹已经完全关闭，原油运输基本停摆。",
         currentStatus: "confirmed",
-        confirmedPoints: "官方文本确认必要时可动用库存，IEA 也确认紧急储备体系具备较长时间补充能力。",
-        unconfirmedPoints: "截至北京时间 3 月 11 日上午，没有“立即释储已经决定”的官方执行安排或联合发布。",
-        rejectedSources: ["市场二级转述版本", "把“ready to act”误读成“already releasing”的摘要稿"],
-        pendingTargets: ["后续是否出现正式执行决定", "是否公布释放规模与时间"],
-        riskNote: "可以引用“必要时可行动”，不能引用“已经决定立即释储”。",
+        confirmedPoints: "霍尔木兹仍在通行，但通行数量明显收缩，海湾-亚洲油轮运价和附加费同步抬升。",
+        unconfirmedPoints: "截至北京时间 3 月 11 日上午，没有证据支持“霍尔木兹已全面关闭”或“所有原油运输停摆”。",
+        rejectedSources: ["把局部风险直接升级成全面停摆的转述稿", "只看单条战事消息、不核对通行与运价的二手摘要"],
+        pendingTargets: ["海峡通行量是否继续下降", "运价与附加费是否进一步扩大", "风险会不会从航运层继续传导到更广实体链条"],
+        riskNote: "可以引用“通行骤降与运价飙升”，不能直接写成“全面关闭”。",
         updatedAt: "2026-03-11T09:18:00+08:00"
       }
     ],
