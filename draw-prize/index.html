@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>直播抽奖系统</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+
+  <h1>直播抽奖系统</h1>
+
+  <div class="panel">
+    <label>抽奖主题</label>
+    <input id="title" placeholder="例如：年会抽奖" />
+  </div>
+
+  <div class="panel">
+    <label>参与人员（每行一个）</label>
+    <textarea id="users" placeholder="张三\n李四\n王五"></textarea>
+  </div>
+
+  <div class="panel">
+    <label>奖品配置（格式：奖品名,数量）</label>
+    <textarea id="prizes" placeholder="一等奖,1\n二等奖,3\n三等奖,5"></textarea>
+  </div>
+
+  <div class="panel row">
+    <button onclick="startDraw()">开始抽奖</button>
+    <button onclick="resetDraw()">重置</button>
+  </div>
+
+  <div class="panel">
+    <label>指定中奖模式（输入名字，可空）</label>
+    <input id="manual" placeholder="例如：张三" />
+  </div>
+
+  <div class="result" id="result">
+    等待开始抽奖
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
