@@ -8,141 +8,182 @@ function parseLines(text){
 
 function parsePrizes(text){
   return text.split('\n').map(line=>{
-    const [name,count] = line.split(',');
-    return { name:(name||'').trim(), count:parseInt(count||'1') };
+    const [name,count]=line.split(',');
+    return {name:(name||'').trim(),count:parseInt(count||'1')};
   }).filter(p=>p.name);
 }
 
-let pool = [];
-let prizePool = [];
-let history = JSON.parse(localStorage.getItem('draw_history')||'[]');
+let pool=[];
+let prizePool=[];
+let history=JSON.parse(localStorage.getItem('draw_history')||'[]');
 
-let rollingTimer = null;
-let speed = 30;
-let currentDisplay = '';
+let timer=null;
+let gridTimer=null;
+let index=0;
+let speed=60;
 
-function getBlacklist(){
-  const text = document.getElementById('blacklist')?.value || '';
-  return parseLines(text);
+function getManual(){
+  return parseLines(document.getElementById('manualList')?.value||'');
 }
 
-function getManualList(){
-  const text = document.getElementById('manualList')?.value || '';
-  return parseLines(text);
+function getBlacklist(){
+  return parseLines(document.getElementById('blacklist')?.value||'');
 }
 
 function saveHistory(){
   localStorage.setItem('draw_history',JSON.stringify(history));
 }
 
-function renderResult(text){
-  document.getElementById('result').innerHTML = text;
+function buildGrid(list){
+  let stage=document.querySelector('.stage');
+  if(!stage){
+    stage=document.createElement('div');
+    stage.className='stage';
+
+    const lights=document.createElement('div');
+    lights.className='lights';
+
+    const grid=document.createElement('div');
+    grid.className='grid';
+
+    stage.appendChild(lights);
+    stage.appendChild(grid);
+    document.body.appendChild(stage);
+  }
+
+  const grid=document.querySelector('.grid');
+  grid.innerHTML='';
+
+  list.slice(0,36).forEach(n=>{
+    const d=document.createElement('div');
+    d.className='cell';
+    d.innerText=n;
+    grid.appendChild(d);
+  });
 }
 
-function startRolling(list){
-  let i = 0;
-  const el = document.getElementById('result');
+function flashGrid(){
+  const cells=document.querySelectorAll('.cell');
+  if(!cells.length) return;
 
-  function tick(){
-    i = (i+1)%list.length;
-    currentDisplay = list[i];
-    el.innerHTML = '<div style="font-size:28px;letter-spacing:2px">' + currentDisplay + '</div>';
-  }
+  cells.forEach(c=>c.classList.remove('active'));
 
-  function loop(){
-    clearInterval(rollingTimer);
-    rollingTimer = setInterval(tick, speed);
-  }
+  const i=Math.floor(Math.random()*cells.length);
+  if(cells[i]) cells[i].classList.add('active');
+}
 
-  loop();
+function startStageAnimation(list){
+  clearInterval(gridTimer);
 
-  // slow down
-  let steps = 0;
-  const slow = setInterval(()=>{
+  let steps=0;
+
+  gridTimer=setInterval(()=>{
+    flashGrid();
     steps++;
-    speed += 10;
-    loop();
 
-    if(steps>8){
-      clearInterval(slow);
-      clearInterval(rollingTimer);
+    if(steps>25 && steps<45){
+      speed=120;
     }
-  },300);
+
+    if(steps>=45){
+      clearInterval(gridTimer);
+    }
+  },80);
 }
 
-function pickWinner(pool, manualList){
-  if(manualList.length>0){
-    return manualList[Math.floor(Math.random()*manualList.length)];
+function rollingText(list,cb){
+  let i=0;
+  const el=document.getElementById('result');
+
+  timer=setInterval(()=>{
+    i=(i+1)%list.length;
+    el.innerHTML='<div style="font-size:34px;letter-spacing:3px;color:#fff;text-shadow:0 0 20px #2f6bff">'+list[i]+'</div>';
+  },speed);
+
+  setTimeout(()=>{
+    clearInterval(timer);
+    cb();
+  },2500);
+}
+
+function pickWinner(pool,manual){
+  if(manual.length>0){
+    return manual[Math.floor(Math.random()*manual.length)];
   }
   return pool[Math.floor(Math.random()*pool.length)];
 }
 
 function startDraw(){
+  const users=parseUsers(document.getElementById('users').value);
+  const prizes=parsePrizes(document.getElementById('prizes').value);
 
-  const users = parseUsers(document.getElementById('users').value);
-  const prizes = parsePrizes(document.getElementById('prizes').value);
+  const blacklist=getBlacklist();
+  const manual=getManual();
 
-  const blacklist = getBlacklist();
-  const manualList = getManualList();
+  const filtered=users.filter(u=>!blacklist.includes(u));
 
-  const filtered = users.filter(u=>!blacklist.includes(u));
+  pool=[...filtered];
 
-  pool = [...filtered];
-
-  prizePool = [];
+  prizePool=[];
   prizes.forEach(p=>{
     for(let i=0;i<p.count;i++) prizePool.push(p.name);
   });
 
-  const prize = prizePool[Math.floor(Math.random()*prizePool.length)];
+  buildGrid(pool);
+  startStageAnimation(pool);
 
-  startRolling(pool);
+  const prize=prizePool[Math.floor(Math.random()*prizePool.length)];
 
-  setTimeout(()=>{
-    const winner = pickWinner(pool,manualList);
+  rollingText(pool,()=>{
+    const winner=pickWinner(pool,manual);
 
     history.push({winner,prize,time:new Date().toISOString()});
     saveHistory();
 
-    renderResult('🎉 中奖结果：<br><b>'+winner+'</b><br>奖品：'+prize);
-  },3000);
+    document.getElementById('result').innerHTML=
+      '🎉 <span style="color:#2f6bff">'+winner+'</span><br/>获得：'+prize;
+
+    // final flash
+    let flash=0;
+    const f=setInterval(()=>{
+      document.body.style.background=flash%2?'#070A12':'#0b1a3a';
+      flash++;
+      if(flash>6){
+        clearInterval(f);
+        document.body.style.background='#070A12';
+      }
+    },120);
+  });
 }
 
 function resetDraw(){
-  renderResult('等待开始抽奖');
+  document.getElementById('result').innerHTML='等待开始抽奖';
 }
 
 function toggleFullscreen(){
-  const el = document.documentElement;
-  if(el.requestFullscreen){
-    el.requestFullscreen();
-  }
+  document.documentElement.requestFullscreen();
 }
 
 function exportCSV(){
-  let csv = 'winner,prize,time\n';
+  let csv='winner,prize,time\n';
   history.forEach(h=>{
-    csv += `${h.winner},${h.prize},${h.time}\n`;
+    csv+=`${h.winner},${h.prize},${h.time}\n`;
   });
-
-  const blob = new Blob([csv],{type:'text/csv'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = 'draw_history.csv';
+  const blob=new Blob([csv],{type:'text/csv'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='draw_history.csv';
   a.click();
 }
 
 function clearHistory(){
-  history = [];
-  saveHistory();
+  history=[];
+  localStorage.removeItem('draw_history');
 }
 
-// admin panel toggle
-window.addEventListener('keydown',(e)=>{
+window.addEventListener('keydown',e=>{
   if(e.ctrlKey && e.shiftKey && e.key==='A'){
-    const el = document.getElementById('admin');
-    if(el){
-      el.style.display = el.style.display==='none'?'block':'none';
-    }
+    const el=document.getElementById('admin');
+    if(el) el.style.display=el.style.display==='block'?'none':'block';
   }
 });
