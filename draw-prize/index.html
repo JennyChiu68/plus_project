@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>直播抽奖系统</title>
+<title>直播抽奖系统 PRO</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="app">
+<div class="app" id="app">
 
-  <h1>直播抽奖系统</h1>
+  <h1 id="mainTitle">直播抽奖系统 PRO</h1>
 
   <div class="panel">
     <label>抽奖主题</label>
@@ -23,18 +23,24 @@
   </div>
 
   <div class="panel">
-    <label>奖品配置（格式：奖品名,数量）</label>
-    <textarea id="prizes" placeholder="一等奖,1\n二等奖,3\n三等奖,5"></textarea>
+    <label>奖品配置（奖品,数量）</label>
+    <textarea id="prizes" placeholder="iPhone,1\n红包,5\n鼠标,3"></textarea>
   </div>
 
   <div class="panel row">
     <button onclick="startDraw()">开始抽奖</button>
     <button onclick="resetDraw()">重置</button>
+    <button onclick="toggleFullscreen()">全屏</button>
   </div>
 
   <div class="panel">
-    <label>指定中奖模式（输入名字，可空）</label>
-    <input id="manual" placeholder="例如：张三" />
+    <label>指定中奖名单（优先）</label>
+    <textarea id="manualList" placeholder="张三\n李四"></textarea>
+  </div>
+
+  <div class="panel">
+    <label>黑名单（不参与抽奖）</label>
+    <textarea id="blacklist" placeholder="张三"></textarea>
   </div>
 
   <div class="result" id="result">
@@ -42,6 +48,14 @@
   </div>
 
 </div>
+
+<div class="admin" id="admin">
+  <h3>ADMIN 控制台</h3>
+  <button onclick="exportCSV()">导出中奖记录</button>
+  <button onclick="clearHistory()">清空记录</button>
+</div>
+
+<audio id="beep"></audio>
 
 <script src="app.js"></script>
 
