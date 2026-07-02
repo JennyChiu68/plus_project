@@ -3,14 +3,21 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>直播抽奖系统 PRO</title>
+<title>直播抽奖系统 V4</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
+<!-- top control bar -->
+<div class="topbar" style="position:fixed;top:10px;right:10px;z-index:9999;display:flex;gap:8px;">
+  <button onclick="setViewerMode(true)">观众视角</button>
+  <button onclick="setViewerMode(false)">编辑视角</button>
+  <button onclick="toggleAdmin()">控制台</button>
+</div>
+
 <div class="app" id="app">
 
-  <h1 id="mainTitle">直播抽奖系统 PRO</h1>
+  <h1 id="mainTitle">直播抽奖系统 V4 舞台版</h1>
 
   <div class="panel">
     <label>抽奖主题</label>
@@ -49,7 +56,8 @@
 
 </div>
 
-<div class="admin" id="admin">
+<!-- admin panel -->
+<div class="admin" id="admin" style="display:none;">
   <h3>ADMIN 控制台</h3>
   <button onclick="exportCSV()">导出中奖记录</button>
   <button onclick="clearHistory()">清空记录</button>
@@ -58,6 +66,18 @@
 <audio id="beep"></audio>
 
 <script src="app.js"></script>
+
+<script>
+function setViewerMode(on){
+  document.body.classList.toggle('viewer-mode',on);
+}
+
+function toggleAdmin(){
+  const el=document.getElementById('admin');
+  if(!el) return;
+  el.style.display = (el.style.display==='none'||!el.style.display)?'block':'none';
+}
+</script>
 
 </body>
 </html>
