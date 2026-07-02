@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>V8 活动级抽奖系统 - 后台</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+
+<div class="admin-shell">
+
+  <aside class="admin-panel">
+
+    <div class="admin-head">
+      <div>
+        <div class="eyebrow">EVENT CONTROL SYSTEM</div>
+        <h1>V8 活动级抽奖后台</h1>
+      </div>
+      <button id="openLive">打开大屏</button>
+    </div>
+
+    <div class="form">
+      <label>活动标题</label>
+      <input id="title" value="锦鲤盛典 · 年度抽奖" />
+    </div>
+
+    <div class="form">
+      <label>参与人员（每行一个）</label>
+      <textarea id="users">张三
+李四
+王五
+赵六
+钱七
+孙八</textarea>
+    </div>
+
+    <div class="form">
+      <label>奖品配置（每行：奖品,数量）</label>
+      <textarea id="prizes">iPhone,1
+MacBook,1
+红包,10
+耳机,5</textarea>
+    </div>
+
+    <div class="form">
+      <label>指定中奖（每行：人名=奖品）</label>
+      <textarea id="manual"></textarea>
+    </div>
+
+    <div class="form">
+      <label>黑名单（每行一个）</label>
+      <textarea id="blacklist"></textarea>
+    </div>
+
+    <div class="form">
+      <label>奖品图片上传（选择奖品后上传）</label>
+      <div id="imageUploadArea"></div>
+    </div>
+
+    <div class="actions">
+      <button id="sync">同步大屏</button>
+      <button id="start">开始抽奖</button>
+      <button id="reset">重置</button>
+      <button id="export">导出记录</button>
+    </div>
+
+    <div class="status">
+      <div>状态：<span id="status">准备就绪</span></div>
+      <div>中奖人：<span id="winner">-</span></div>
+      <div>奖品：<span id="prize">-</span></div>
+    </div>
+
+  </aside>
+
+  <main class="preview">
+    <iframe src="live.html"></iframe>
+  </main>
+
+</div>
+
+<script src="main.js"></script>
+
+</body>
+</html>
